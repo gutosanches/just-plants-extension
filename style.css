@@ -1,0 +1,113 @@
+body, html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100%;
+  overflow: hidden;
+  margin: 0;
+  background: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system,BlinkMacSystemFont,"Neue Haas Grotesk Text Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 100%;
+  color: #fff;
+  transition: opacity .5s ease-out;
+  opacity: 0;
+}
+
+body.show {
+  opacity: 1;
+}
+
+a {
+  color: #fff;
+  outline: 0;
+  text-decoration: none;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: repeat-x;
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-image: url(images/overlay.png);
+  background-size: 100% 100%;
+}
+
+.content {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.time, .greetings {
+  font-weight: 500;
+  display: block;
+  line-height: 1;
+  user-select: none;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+}
+
+.time {
+  font-size: 1050%;
+  letter-spacing: 0;
+}
+
+.greetings {
+  /* font-size: 337.5%; */
+  font-size: 250%;
+  letter-spacing: 0;
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+.author {
+  font-size: 87.5%;
+  opacity: 0;
+  cursor: pointer;
+  font-weight: 300;
+  user-select: none;
+  transition: opacity .25s ease-out, text-shadow .25s ease-out;
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+}
+
+.author.show {
+  opacity: .8;
+}
+
+.author.show:hover {
+  opacity: 1;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.3);
+}
