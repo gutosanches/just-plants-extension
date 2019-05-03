@@ -1,7 +1,7 @@
 {
   "name": "Just Plants - New Tab",
   "description": "Replace new tab with beautiful plants photos everyday.",
-  "version": "0.0.0.1",
+  "version": "0.0.2",
   "author": "Guto Sanches gutosanches.com",
   "manifest_version": 2,
   "icons": {
