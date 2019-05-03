@@ -5,30 +5,39 @@
  */
 var shouldFormat = localStorage.getItem('shouldFormat') === 'true'
 
-function startTime () {
-  var today = new Date()
-  var h = today.getHours()
-  var m = today.getMinutes()
+function startTimer () {
   var timeEl = document.querySelector('.time')
 
-  // Formatting
-  if (shouldFormat) {
-    h = h % 12
-    h = h || 12
-    h = checkTime(h)
+  function setTime () {
+    var today = new Date()
+    var h = today.getHours()
+    var m = today.getMinutes()
+
+    // Formatting
+    if (shouldFormat) {
+      h = h % 12
+      h = h || 12
+      h = checkTime(h)
+    }
+
+    m = checkTime(m)
+
+    var time = h + ':' + m
+
+    timeEl.innerHTML = time
+
+    setTimeout(setTime, 500)
   }
 
-  m = checkTime(m)
-
-  timeEl.innerHTML = h + ':' + m
-
-  setTimeout(startTime, 500)
+  setTime()
 
   // Toggle format hours on .time click
-  timeEl.parentElement.addEventListener('click', function () {
-    shouldFormat = !shouldFormat
-    localStorage.setItem('shouldFormat', shouldFormat)
-  })
+  timeEl.parentElement.addEventListener('click', toggleTimeFormat)
+}
+
+function toggleTimeFormat () {
+  shouldFormat = !shouldFormat
+  localStorage.setItem('shouldFormat', shouldFormat)
 }
 
 function checkTime (i) {
@@ -38,7 +47,7 @@ function checkTime (i) {
   return i
 }
 
-startTime()
+startTimer()
 
 /**
  *
